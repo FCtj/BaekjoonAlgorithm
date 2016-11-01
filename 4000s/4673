@@ -1,0 +1,43 @@
+package November;
+
+public class Main {
+	private static int[] selfNumbers = new int[10000];
+	private static int dnSum = 0;
+	private static int selfN = 0;
+	
+	public static void main(String[] args) {
+		selfNumber();
+	}
+	
+	private static void selfN(int n){
+		if(n>10000)
+			return;
+		String dn = Integer.toString(n);
+		selfN = n;
+		dnSum = 0;
+		for(int j = dn.length();j>0;j--){
+			dnSum+=(int)dn.charAt(j-1)-48;
+		}
+		selfN+=dnSum;
+		
+		if(selfN>10000)
+			return;
+		
+		selfNumbers[selfN-1]=1;
+		selfN(selfN);
+		
+	}
+	
+	private static void selfNumber(){
+		
+		for(int i=0;i<10000;i++){
+			if(selfNumbers[i]!=1)
+				selfN(i+1);
+		}
+		
+		for(int i = 0; i < 10000; i++){
+			if(selfNumbers[i]!=1)
+				System.out.println(i+1);
+		}
+	}
+}
