@@ -1,3 +1,3 @@
 # BaekjoonAlgorithm
 
-algorithm in BaekjoonAlgorithm
+algorithms in BaekjoonAlgorithm
