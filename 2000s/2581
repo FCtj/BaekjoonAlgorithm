@@ -1,6 +1,4 @@
-#this is wrong code
-
-import java.util.Scanner;
+package November;
 
 public class Main {
 	
@@ -9,17 +7,17 @@ public class Main {
 		int M,N;
 		M=sc.nextInt();
 		N=sc.nextInt();
-		minority(M,N);
+		if(!((M>10000||N>10000)||(M<1||N<1)||M>N))
+			minority(M,N);
 	}
 	
 	private static void minority(int M, int N){
 		int i=2, index = 0, sum = 0;
 		int[] data = new int[N];
 		
-		if(M>10000||N>10000||M>N)
-			return;
+		//1과 2일때 처리하기
 		if(M==1)
-			data[index++]=M++;
+			M++;
 		if(!(M>N)&&M==2)
 			data[index++]=M++;
 		
