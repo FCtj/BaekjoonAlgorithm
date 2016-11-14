@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner  sc = new Scanner(System.in);
+		int M=sc.nextInt(),D=sc.nextInt();
+		String day = null;
+				
+		for(int i = 1;i < M;i++){
+			if(i<8){
+				D += i==2?28:i%2==1?31:30;
+			}else{
+				D += i%2==1?30:31;
+			}
+		}
+		switch(D%7){
+		case 0:
+			day="SUN";
+			break;
+		case 1:
+			day="MON";
+			break;
+		case 2:
+			day="TUE";
+			break;
+		case 3:
+			day="WED";
+			break;
+		case 4:
+			day="THU";
+			break;
+		case 5:
+			day="FRI";
+			break;
+		default:
+			day="SAT";
+		}
+		
+		System.out.println(day);
+	}
+}
