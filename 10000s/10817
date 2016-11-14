@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner  sc = new Scanner(System.in);
+		int F=sc.nextInt(),S=sc.nextInt(),T=sc.nextInt();
+		int mid;
+		if(F>S){
+			if(F>T){
+				if(S>T)mid=S;
+				else mid=T;
+			}else mid=F;
+			
+		}
+		else{
+			if(S>T){
+				if(F>T)mid=F;
+				else mid =T;
+			}else mid=S;
+		}
+		System.out.println(mid);
+	}
+}
