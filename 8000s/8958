@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main {
+
+	static char[] data = new char[80];
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int score,sum;
+		int i = sc.nextInt();
+		StringBuffer cases = new StringBuffer();
+		
+		while(i-- >0){
+			score = 0;sum=0;
+			cases.append(sc.next());
+			for(int j = 0;j<cases.length();j++){
+				if(cases.charAt(j)=='O'){
+					sum+=++score;
+				}else{
+					score=0;
+				}
+			}
+			cases.delete(0, cases.length());
+			System.out.println(sum);
+		}
+		
+	}
+}
