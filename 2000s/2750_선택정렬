@@ -1,0 +1,46 @@
+package November;
+
+import java.util.*;
+
+public class Main {
+	static int N; 
+	static int []data;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt(); data = new int[N];
+		for(int i = 0; i < N ; i++)
+			data[i]=sc.nextInt();
+		sc.close();
+		
+		selectionSort(N-1);
+		
+		for(int i = 0; i < N ; i++)
+			System.out.println(data[i]);
+	}
+	
+	public static void selectionSort(int n){
+		int max;
+		if(n==-1)
+			return;
+		else{
+			max = n;
+			for(int i = n-1; i >= 0;i--){
+				if(data[max] < data[i])
+					max=i;
+			}
+			
+			//insert max into end
+			if(data[n] != data[max]){
+				swap(max,n);
+			}
+			selectionSort(n-1);
+		}
+	}
+	
+	public static void swap(int a, int b){
+		int temp = data[a];
+		data[a] = data[b];
+		data[b] = temp;
+	}
+}
