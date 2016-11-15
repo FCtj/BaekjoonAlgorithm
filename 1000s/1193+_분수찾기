@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt(),d=1;
+		sc.close();
+		int i;
+		for(i = 1; N > i;i+= ++d){}
+		i -= d;N -= i;
+		if(d%2==0)
+			System.out.println(N+"/"+(d-N+1));
+		else
+			System.out.println((d-N+1)+"/"+N);
+	}
+}
