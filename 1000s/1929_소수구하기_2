@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int i, j, count = 1, size = 1, N = sc.nextInt(), M = sc.nextInt();
+		int[] data = new int[M];
+		boolean f;
+		sc.close();
+		long s = System.currentTimeMillis();
+		data[0] = 2;
+		for (i = 2; i <= M; i++) {
+			for (j = 0; j < size; j++) {
+				if (i % data[j] == 0) {
+					break;
+				}
+			}
+			if (j == size) {
+				count++;
+				data[size++] = i;
+        // sb.append(i);sb.append('\n');
+			  // System.out.println(i);
+			}
+		}
+		long e = System.currentTimeMillis();
+		System.out.println(e - s);
+		System.out.println(count);
+	}
+}
