@@ -1,0 +1,39 @@
+//not optimized
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		StringBuffer sb = new StringBuffer();
+		int i, j,count=0, nm, N = sc.nextInt(), M = sc.nextInt();
+		sc.close();
+		boolean[] mn = new boolean[M];
+		mn[0] = true;
+		long s = System.currentTimeMillis();
+		for (i = 1; i <= M; i++) {
+			if (!mn[i - 1]) {
+				for (j = 2; j < i; j++) {
+					if (i % j == 0)
+						break;
+				}
+				if (j == i) {
+					nm = i;
+					while (nm <= M) {
+						mn[nm - 1] = true;
+						nm += i;
+					}
+					if (i>= N) {
+//						sb.append(i);sb.append('\n');
+//						System.out.println(i);
+						count++;
+					}
+				}
+			}
+		}
+		long e = System.currentTimeMillis();
+		System.out.println(e - s);
+		System.out.println(count);
+
+	}
+}
