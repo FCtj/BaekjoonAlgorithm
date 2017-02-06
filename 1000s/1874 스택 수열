@@ -1,0 +1,38 @@
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuffer sb = new StringBuffer();
+
+        int N = Integer.parseInt(br.readLine());
+        int[] seq = new int[N];
+        //수열 배열 생성
+        for (int i = 0; i < N; i++) {
+            seq[i] = Integer.parseInt(br.readLine());
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        int pointer = 0;    //수열 배열 인덱스
+        int seqNum = 1;     //수열에 들어갈 값
+
+        while (pointer < N && seqNum <= N+1) {
+            if (!stack.isEmpty()) {
+                if (stack.peek() == seq[pointer]) {
+                    stack.pop();
+                    pointer++;
+                    sb.append("-\n");
+                } else {
+                    stack.push(seqNum++);
+                    sb.append("+\n");
+                }
+            } else {
+                stack.push(seqNum++);
+                sb.append("+\n");
+            }
+        }
+        if (stack.isEmpty()) {
+            System.out.println(sb);
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
